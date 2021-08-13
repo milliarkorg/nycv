@@ -1,16 +1,16 @@
 import { useEffect, useState, useContext } from 'react'
-import styled , { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { fadeIn, fadeInDown } from 'react-animations';
 import { MenuContext } from '../../components/context/menucontext'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import firebase from 'firebase/app';
 import "firebase/firestore";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 const Zmage = dynamic(
-	() => import('react-zmage'),
-	{ ssr: false }
+    () => import('react-zmage'),
+    { ssr: false }
 )
 
 // Animations
@@ -168,16 +168,16 @@ const Contato = () => {
 
 
     return (
-		<MainStyle>
-			<Helmet>
-				<title>New York City village - Barão Geraldo - Campinas</title>
-			</Helmet>
+        <MainStyle>
+            <Helmet>
+                <title>New York City Village - Barão Geraldo - Campinas</title>
+            </Helmet>
 
-			<Columns>
-				<Left>
-					<Header>
+            <Columns>
+                <Left>
+                    <Header>
                         <Link href='/'>
-						    <Logo src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/logo%2Flogo.png?alt=media&token=85cf1b26-3d30-4a14-9e43-acf5e39a93a0' />
+                            <Logo src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/logo%2Flogo.png?alt=media&token=85cf1b26-3d30-4a14-9e43-acf5e39a93a0' />
                         </Link>
                         <Menu>
                             <Link href='/acomodacoes'>
@@ -191,8 +191,8 @@ const Contato = () => {
                             </Link>
                         </Menu>
                         <MenuBtn onClick={() => menuCtxValue.openMenu(true)} src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/icons%2Fmenu_24px_outlined.svg?alt=media&token=b1386e09-291b-4dd2-b6e0-0d83716a8f47' />
-					</Header>
-					
+                    </Header>
+
 
                     <Body>
                         <>
@@ -202,29 +202,29 @@ const Contato = () => {
                             <a href={`tel:+55-11-988813871`}>
                                 <Btn>Ligar</Btn>
                             </a>
-                    
+
                             <a href={`https://wa.me/5511988813871?text=Olá,%20estou%20entrando%20em%20contato%20pelo%20site`} rel="noopener nofollower" target="_blank">
-                            <Btn>Whatsapp</Btn>
+                                <Btn>Whatsapp</Btn>
                             </a>
-                        
-                            <a href={`mailto:claudiapaioletti@gmail.com`}>
-                            <Btn>Email</Btn>
-                            </a>
+
+                            <Link href='/contactForm'>
+                                <Btn>Email</Btn>
+                            </Link>
                         </>
                     </Body>
 
-				</Left>
+                </Left>
 
-				<Right>
+                <Right>
                     <Cover src='https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fnewyork%205.jpg?alt=media&token=dbe318aa-fe43-4169-9e56-5941744af54d' />
-				</Right>
-			
-			</Columns>
+                </Right>
+
+            </Columns>
 
 
 
-		</MainStyle>
+        </MainStyle>
     )
-  }
-  
-  export default Contato
+}
+
+export default Contato

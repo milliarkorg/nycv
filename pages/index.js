@@ -1,12 +1,12 @@
 import { useEffect, useState, useContext } from 'react'
-import styled , { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { fadeIn, fadeInDown, fadeInLeft } from 'react-animations';
 import { MenuContext } from '../components/context/menucontext'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import firebase from 'firebase/app';
 import "firebase/firestore";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 // const Zmage = dynamic(
 // 	() => import('react-zmage'),
@@ -214,23 +214,23 @@ const HomePage = () => {
 	useEffect(() => {
 
 		// const Ref = firebase.firestore().collection("perfis")
-			
-        // let temp = []
+
+		// let temp = []
 		// Ref.get().then((snapshot) => {
 		// 	snapshot.forEach((doc) => {
 		// 		temp.push(doc.data())
 		// 	});
 		// 	setPerfis(temp)
-        // })
+		// })
 
 	}, [])
-	
 
 
-    return (
+
+	return (
 		<MainStyle>
 			<Helmet>
-				<title>New York City village - Barão Geraldo - Campinas</title>
+				<title>New York City Village - Barão Geraldo - Campinas</title>
 			</Helmet>
 
 			<Columns>
@@ -283,15 +283,15 @@ const HomePage = () => {
 					{cover === 'acomod' && <Cover src={coverArr[1]} />}
 					{cover === 'local' && <Cover src={coverArr[2]} />}
 					{cover === 'estru' && <Cover src={coverArr[3]} />}
-					
+
 				</Right>
-			
+
 			</Columns>
 
 
 
 		</MainStyle>
-    )
-  }
-  
-  export default HomePage
+	)
+}
+
+export default HomePage

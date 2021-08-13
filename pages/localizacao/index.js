@@ -1,22 +1,21 @@
 import { useEffect, useState, useContext } from 'react'
-import styled , { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { MenuContext } from '../../components/context/menucontext'
 import { fadeIn, fadeInDown } from 'react-animations';
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import firebase from 'firebase/app';
 import "firebase/firestore";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 const Zmage = dynamic(
-	() => import('react-zmage'),
-	{ ssr: false }
+    () => import('react-zmage'),
+    { ssr: false }
 )
 
 
 // Animations
 const fadeInAnimation = keyframes`${fadeIn}`;
-const fadeInDownAnimation = keyframes`${fadeInDown}`;
 
 const MainStyle = styled.div`
     background: white;
@@ -220,23 +219,23 @@ const RedoSubItem = styled.div`
 
 
 const redoFacul = [
-    {local: 'Unicamp', dist:'600m | 2 min de carro | 8 min a pé'},
-    {local: 'Facamp', dist:'2300m | 6 min de carro | 31 min a pé'},
-    {local: 'Puccamp', dist:'3700m | 7 min de carro | 49 min a pé'}
+    { local: 'Unicamp', dist: '600m | 2 min de carro | 8 min a pé' },
+    { local: 'Facamp', dist: '2300m | 6 min de carro | 31 min a pé' },
+    { local: 'Puccamp', dist: '3700m | 7 min de carro | 49 min a pé' }
 ]
 const redoMercado = [
-    {local: 'Dia%', dist:'700m | 2 min de carro | 8 min a pé'},
-    {local: 'Pão de Açúcar', dist:'1100m | 5 min de carro | 14 min a pé'},
-    {local: 'Pague Menos', dist:'1400m | 5 min de carro | 18 min a pé'}
+    { local: 'Dia%', dist: '700m | 2 min de carro | 8 min a pé' },
+    { local: 'Pão de Açúcar', dist: '1100m | 5 min de carro | 14 min a pé' },
+    { local: 'Pague Menos', dist: '1400m | 5 min de carro | 18 min a pé' }
 ]
 const redoEmpresa = [
-    {local: 'Venturus', dist:'xm | 2 min de carro | 8 min a pé'},
-    {local: 'Eldorado', dist:'xm | 6 min de carro | 31 min a pé'},
-    {local: 'Boldrini', dist:'xm | 7 min de carro | 49 min a pé.'},
-    {local: 'Medley', dist:'xm | 7 min de carro | 49 min a pé.'},
-    {local: 'Centro Médico', dist:'xm | 7 min de carro | 49 min a pé.'},
-    {local: 'Samsung', dist:'xm | 7 min de carro | 49 min a pé.'},
-    {local: 'CPQD', dist:'xm | 7 min de carro | 49 min a pé.'}
+    { local: 'Venturus', dist: 'xm | 2 min de carro | 8 min a pé' },
+    { local: 'Eldorado', dist: 'xm | 6 min de carro | 31 min a pé' },
+    { local: 'Boldrini', dist: 'xm | 7 min de carro | 49 min a pé.' },
+    { local: 'Medley', dist: 'xm | 7 min de carro | 49 min a pé.' },
+    { local: 'Centro Médico', dist: 'xm | 7 min de carro | 49 min a pé.' },
+    { local: 'Samsung', dist: 'xm | 7 min de carro | 49 min a pé.' },
+    { local: 'CPQD', dist: 'xm | 7 min de carro | 49 min a pé.' }
 ]
 
 
@@ -245,20 +244,18 @@ const redoEmpresa = [
 const Localizacao = () => {
 
     const menuCtxValue = useContext(MenuContext);
-
-
-
     return (
-		<MainStyle>
-			<Helmet>
-				<title>New York City village - Barão Geraldo - Campinas</title>
-			</Helmet>
+        <MainStyle>
+            <Helmet>
 
-			<Columns>
-				<Left>
-					<Header>
+                <title>New York City Village - Barão Geraldo - Campinas</title>
+            </Helmet>
+
+            <Columns>
+                <Left>
+                    <Header>
                         <Link href='/'>
-						    <Logo src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/logo%2Flogo.png?alt=media&token=85cf1b26-3d30-4a14-9e43-acf5e39a93a0' />
+                            <Logo src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/logo%2Flogo.png?alt=media&token=85cf1b26-3d30-4a14-9e43-acf5e39a93a0' />
                         </Link>
                         <Menu>
                             <Link href='/acomodacoes'>
@@ -272,14 +269,14 @@ const Localizacao = () => {
                             </Link>
                         </Menu>
                         <MenuBtn onClick={() => menuCtxValue.openMenu(true)} src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/icons%2Fmenu_24px_outlined.svg?alt=media&token=b1386e09-291b-4dd2-b6e0-0d83716a8f47' />
-					</Header>
-					
+                    </Header>
+
 
                     <Body>
                         <Title>Localização</Title>
 
                         <Desc>
-                        O New York é um imóvel bem peculiar, quem vê sua fachada já se impressiona com os containers compondo o segundo andar do imóvel, ele está localizado entre as Avenidas Professor Atílio Martini (Av. 2) e Doutor Romeu Tórtima (Av. 1), sendo que fica mais próximo de Av. 2 do que da Av. 1 e também mais próximo da Unicamp do que do centro de Barão Geraldo.
+                            O New York é um imóvel bem peculiar, quem vê sua fachada já se impressiona com os containers compondo o segundo andar do imóvel, ele está localizado entre as Avenidas Professor Atílio Martini (Av. 2) e Doutor Romeu Tórtima (Av. 1), sendo que fica mais próximo de Av. 2 do que da Av. 1 e também mais próximo da Unicamp do que do centro de Barão Geraldo.
                         </Desc>
 
                         <EndRow>
@@ -294,18 +291,18 @@ const Localizacao = () => {
                         <RedoColumns>
                             <Column>
                                 <RedoBox>
-                                    {redoFacul.map(item => 
+                                    {redoFacul.map(item =>
                                         <>
-                                        <RedoItem>{item.local}</RedoItem>
-                                        <RedoSubItem>{item.dist}</RedoSubItem>
+                                            <RedoItem>{item.local}</RedoItem>
+                                            <RedoSubItem>{item.dist}</RedoSubItem>
                                         </>
                                     )}
                                 </RedoBox>
                                 <RedoBox>
-                                    {redoMercado.map(item => 
+                                    {redoMercado.map(item =>
                                         <>
-                                        <RedoItem>{item.local}</RedoItem>
-                                        <RedoSubItem>{item.dist}</RedoSubItem>
+                                            <RedoItem>{item.local}</RedoItem>
+                                            <RedoSubItem>{item.dist}</RedoSubItem>
                                         </>
                                     )}
                                 </RedoBox>
@@ -313,16 +310,16 @@ const Localizacao = () => {
 
                             <Column>
                                 <RedoBox>
-                                    {redoEmpresa.map(item => 
+                                    {redoEmpresa.map(item =>
                                         <>
-                                        <RedoItem>{item.local}</RedoItem>
-                                        <RedoSubItem>{item.dist}</RedoSubItem>
+                                            <RedoItem>{item.local}</RedoItem>
+                                            <RedoSubItem>{item.dist}</RedoSubItem>
                                         </>
                                     )}
                                 </RedoBox>
                             </Column>
-                           
-                           
+
+
                         </RedoColumns>
 
                         {/* <ButtonRow>
@@ -333,18 +330,18 @@ const Localizacao = () => {
                         </ButtonRow> */}
                     </Body>
 
-				</Left>
+                </Left>
 
-				<Right>
+                <Right>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10622.700647050211!2d-47.07989642869378!3d-22.82131756108572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c6b47297038f%3A0xa406f2cdd275899c!2sR.%20Luverci%20Pereira%20de%20Souza%2C%201430%20-%20Cidade%20Universit%C3%A1ria%2C%20Campinas%20-%20SP%2C%2013083-730!5e0!3m2!1sen!2sbr!4v1581959288420!5m2!1sen!2sbr" width="100%" height="100%" frameborder="0" ></iframe>
-				</Right>
-			
-			</Columns>
+                </Right>
+
+            </Columns>
 
 
 
-		</MainStyle>
+        </MainStyle>
     )
-  }
-  
-  export default Localizacao
+}
+
+export default Localizacao

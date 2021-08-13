@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 // import { Button, Icon, Modal, Popup } from 'semantic-ui-react'
 import firebase from 'firebase/app';
@@ -6,9 +6,6 @@ import "firebase/storage";
 import { ToastContainer, toast } from 'react-toastify';
 import Modal from 'react-modal';
 import ImgUploader from '../components/imgUploader'
-// import FileUploader from "react-firebase-file-uploader";
-// import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
-
 
 
 const ModalStyled = styled(Modal)`
@@ -105,7 +102,7 @@ const Button = styled.div`
 `
 
 
-const PensionatosEdit = ({modalOpen, itemData, setModalOpen, closeModal}) => {
+const PensionatosEdit = ({ modalOpen, itemData, setModalOpen, closeModal }) => {
 
     const [Data, setData] = useState(itemData);
     const [delPopupOpen, setDelPopupOpen] = useState(false);
@@ -113,7 +110,7 @@ const PensionatosEdit = ({modalOpen, itemData, setModalOpen, closeModal}) => {
 
 
     useEffect(() => {
-        if (typeof(window) !== 'undefined') {
+        if (typeof (window) !== 'undefined') {
             Modal.setAppElement('body')
         }
 
@@ -122,7 +119,7 @@ const PensionatosEdit = ({modalOpen, itemData, setModalOpen, closeModal}) => {
 
     useEffect(() => {
         setData(itemData);
-        
+
     }, [itemData])
 
 
@@ -132,7 +129,7 @@ const PensionatosEdit = ({modalOpen, itemData, setModalOpen, closeModal}) => {
         if (uploadingImg === true) {
             update()
         }
-        
+
     }, [Data])
 
 
@@ -142,58 +139,38 @@ const PensionatosEdit = ({modalOpen, itemData, setModalOpen, closeModal}) => {
 
     const update = () => {
 
-        firebase.firestore().collection("perfis").doc(Data.id).set({...Data}).then(function() {
+        firebase.firestore().collection("perfis").doc(Data.id).set({ ...Data }).then(function () {
             toast.success('Atualização Enviada');
             setUploadingImg(false)
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log(error)
             toast.error('Erro :' + error);
         });
-        
-	}
-    
-    // const deleteNews = (id) => {
-    //     setModalOpen(false)
-    //     setDelPopupOpen(false)
-    //     firebase.firestore().collection("perfis").doc(Data.id).delete()
-    //     .then(function() {
-    //         toast.error('Documento Deletado');
-    //         setData({ titulo: '', id: '', dia: '', desc: '', published: false, local: '', link: '', oferta: '' })
-            
-    //     }).catch(function(error) {
-    //         toast.error('Erro :' + error);
-    //         console.error("Error removing document: ", error);
-    //     });
-    // }
-    
 
+    }
 
 
     const dbWrite = (url) => {
-        setData({...Data, fotos: [...Data.fotos, {src: url, alt: 'pensionato'}]})
-        
+        setData({ ...Data, fotos: [...Data.fotos, { src: url, alt: 'pensionato' }] })
+
     }
 
 
     const dbDelete = (url) => {
         let newFotos = Data.fotos.filter(item => item.src != url)
-        setData({...Data, fotos:newFotos})
+        setData({ ...Data, fotos: newFotos })
     }
-
 
     const dbWriteBanner = (url) => {
-        setData({...Data, imgBanner: url})
-        
+        setData({ ...Data, imgBanner: url })
+
     }
     const dbDeleteBanner = (url) => {
-        setData({...Data, imgBanner: ''})
+        setData({ ...Data, imgBanner: '' })
     }
 
-
-
-
     const modalStyles = {
-        content : {
+        content: {
             // position: 'absolute',
             padding: '40px',
             marginTop: '40px',
@@ -210,72 +187,72 @@ const PensionatosEdit = ({modalOpen, itemData, setModalOpen, closeModal}) => {
 
 
     return (
-       
-        <ModalStyled 
+
+        <ModalStyled
             isOpen={modalOpen}
             onClose={() => setModalOpen(false)}
             style={modalStyles}
             onRequestClose={() => closeModal()}
         >
-        <>
-        
-            <Title>Editar/Enviar Pensionatos</Title>
-            <div>
-                
+            <>
+
+                <Title>Editar/Enviar Pensionatos</Title>
+                <div>
+
                     <EditPanel>
                         {Data &&
-                        <FormBox>
-                            {/* <Button basic onClick={() => setShowPreview(!showPreview)} size='tiny'>Expandir/Colapsar</Button> <br /><br /> */}
-                            <Label>Titulo</Label>
-                            <Input value={Data.title} onChange={(e) => setData({...Data, title: e.target.value})} /> <br />
-                            
-                            <Label>ID</Label>
-                            <Input disabled value={Data.id} onChange={(e) => setData({...Data, id: e.target.value})} /> <br />
-                            
-                            <Label>Ordenação</Label>
-                            <Input value={Data.ordem} type='number' min='0' onChange={(e) => setData({...Data, ordem: e.target.value})} /> <br />
+                            <FormBox>
+                                {/* <Button basic onClick={() => setShowPreview(!showPreview)} size='tiny'>Expandir/Colapsar</Button> <br /><br /> */}
+                                <Label>Titulo</Label>
+                                <Input value={Data.title} onChange={(e) => setData({ ...Data, title: e.target.value })} /> <br />
 
-                            <Label>Resumo</Label>
-                            <TextArea value={Data.resumo} maxLength="280" onChange={(e) => setData({...Data, resumo: e.target.value})} /> <br />
+                                <Label>ID</Label>
+                                <Input disabled value={Data.id} onChange={(e) => setData({ ...Data, id: e.target.value })} /> <br />
 
-                            <Label>Descrição</Label>
-                            <TextArea value={Data.desc} onChange={(e) => setData({...Data, desc: e.target.value})} /> <br />
+                                <Label>Ordenação</Label>
+                                <Input value={Data.ordem} type='number' min='0' onChange={(e) => setData({ ...Data, ordem: e.target.value })} /> <br />
 
+                                <Label>Resumo</Label>
+                                <TextArea value={Data.resumo} maxLength="280" onChange={(e) => setData({ ...Data, resumo: e.target.value })} /> <br />
 
-                            <Label>Banner Página Inicial</Label>
-                            <ImgUploader 
-                                // data={Data.banner}
-                                // arrayImg={}
-                                singleImg={Data.imgBanner} 
-                                dbref={'inicial'} 
-                                storageRef={'inicial'}
-                                dbWrite={(url) => dbWriteBanner(url)} 
-                                dbDelete={(url) => dbDeleteBanner(url)} 
-                                startUpload={() => setUploadingImg(true)} 
-                                // startUpload={() => console.log('StartUpload')} 
-                                finishUpload={() => setUploadingImg(false)} 
-                                uploadFlag={uploadingImg}
-                            />
+                                <Label>Descrição</Label>
+                                <TextArea value={Data.desc} onChange={(e) => setData({ ...Data, desc: e.target.value })} /> <br />
 
 
-                            <Label>Imagens</Label>
-                            <ImgUploader 
-                                // data={Data.fotos} 
-                                arrayImg={Data.fotos}
-                                // singleImg={Data.imgBanner} 
-                                storageRef={Data.id}
-                                dbref={'perfis'} 
-                                dbWrite={(url) => dbWrite(url)} 
-                                dbDelete={(url) => dbDelete(url)} 
-                                startUpload={() => setUploadingImg(true)} 
-                                // startUpload={() => console.log('StartUpload')} 
-                                finishUpload={() => setUploadingImg(false)} 
-                                uploadFlag={uploadingImg}
+                                <Label>Banner Página Inicial</Label>
+                                <ImgUploader
+                                    // data={Data.banner}
+                                    // arrayImg={}
+                                    singleImg={Data.imgBanner}
+                                    dbref={'inicial'}
+                                    storageRef={'inicial'}
+                                    dbWrite={(url) => dbWriteBanner(url)}
+                                    dbDelete={(url) => dbDeleteBanner(url)}
+                                    startUpload={() => setUploadingImg(true)}
+                                    // startUpload={() => console.log('StartUpload')} 
+                                    finishUpload={() => setUploadingImg(false)}
+                                    uploadFlag={uploadingImg}
+                                />
 
-                            />
-                           
 
-                        </FormBox>
+                                <Label>Imagens</Label>
+                                <ImgUploader
+                                    // data={Data.fotos} 
+                                    arrayImg={Data.fotos}
+                                    // singleImg={Data.imgBanner} 
+                                    storageRef={Data.id}
+                                    dbref={'perfis'}
+                                    dbWrite={(url) => dbWrite(url)}
+                                    dbDelete={(url) => dbDelete(url)}
+                                    startUpload={() => setUploadingImg(true)}
+                                    // startUpload={() => console.log('StartUpload')} 
+                                    finishUpload={() => setUploadingImg(false)}
+                                    uploadFlag={uploadingImg}
+
+                                />
+
+
+                            </FormBox>
                         }
                     </EditPanel>
 
@@ -283,11 +260,11 @@ const PensionatosEdit = ({modalOpen, itemData, setModalOpen, closeModal}) => {
                     {/* <a href='https://www.markdownguide.org/basic-syntax'>Markdown Syntax</a> */}
 
 
-            </div>
-            
-            <ButtonBox>
+                </div>
 
-                {/* <Popup trigger={!Data.published && Data.id && <Button>Delete<Icon name='right trash' /></Button>} 
+                <ButtonBox>
+
+                    {/* <Popup trigger={!Data.published && Data.id && <Button>Delete<Icon name='right trash' /></Button>} 
                         on='click' 
                         open={delPopupOpen} 
                         onClose={() => setDelPopupOpen(false)}
@@ -296,19 +273,19 @@ const PensionatosEdit = ({modalOpen, itemData, setModalOpen, closeModal}) => {
                     <div>Tem certeza que deseja deletar permanentemente?</div><br />
                     <Button color='red' content='Delete' fluid onClick={() => deleteNews(Data.id)}/>
                 </Popup> */}
-                
-                {/* {!Data.published && <Button color='red' onClick={() => deleteNews()}>Delete<Icon name='right trash' /></Button>} */}
-                
-                <Button onClick={() => update()}>
-                    Atualizar 
-                </Button>
-                <Button onClick={() => setModalOpen(false)}>
-                    Fechar 
-                </Button>
-            </ButtonBox>
 
-            <ToastContainer autoClose={2000} position={toast.POSITION.BOTTOM_LEFT}/>
-        </>
+                    {/* {!Data.published && <Button color='red' onClick={() => deleteNews()}>Delete<Icon name='right trash' /></Button>} */}
+
+                    <Button onClick={() => update()}>
+                        Atualizar
+                    </Button>
+                    <Button onClick={() => setModalOpen(false)}>
+                        Fechar
+                    </Button>
+                </ButtonBox>
+
+                <ToastContainer autoClose={2000} position={toast.POSITION.BOTTOM_LEFT} />
+            </>
 
         </ModalStyled>
     )

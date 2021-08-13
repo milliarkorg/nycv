@@ -10,9 +10,6 @@ import Footer from '../components/layout/footer'
 import { MenuContext } from '../components/context/menucontext'
 import '../assets/css/font-imports.css'
 import 'react-toastify/dist/ReactToastify.css';
-import firebase from "firebase/app";
-import "firebase/auth";
-import { FirebaseAuthProvider } from "@react-firebase/auth";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -80,66 +77,49 @@ const MainStyle = styled.div`
     // }
 `
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDCTKgpehGAGza9jFiFdmCnEAle6YaHQac",
-    authDomain: "unimoradia-afdc4.firebaseapp.com",
-    databaseURL: "https://unimoradia-afdc4.firebaseio.com",
-    projectId: "unimoradia-afdc4",
-    storageBucket: "unimoradia-afdc4.appspot.com",
-    messagingSenderId: "588529298290",
-    appId: "1:588529298290:web:383ac25c108a0516da0beb"
-};
-
-
-// const MenuContext = React.createContext(false);
-
+/* const firebaseConfig = {
+    apiKey: "AIzaSyCoeywy-lFmiWjxr_EXQIl4C9nnTihZQ7A",
+    authDomain: "new-york-city-village.firebaseapp.com",
+    databaseURL: "https://new-york-city-village.firebaseio.com",
+    projectId: "new-york-city-village",
+    storageBucket: "new-york-city-village.appspot.com",
+    messagingSenderId: "359184157731",
+    appId: "1:359184157731:web:29d0f22c8ad4f4ec133596"
+}; */
 
 export default class MyApp extends App {
 
-constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.openMenu = (bool) => {
-        // this.setState(state => ({
-        // isOpen: state.isOpen === true ? false : true,
-        // }));
-        this.setState({
-            isOpen: bool
-        })
-    };
-
-    this.state = {
-        isOpen: false,
-        openMenu: this.openMenu
-    };
-    
-}
-
-
-
-
+        this.openMenu = (bool) => {
+            this.setState({
+                isOpen: bool
+            })
+        };
+        this.state = {
+            isOpen: false,
+            openMenu: this.openMenu
+        };
+    }
     render() {
         const { Component, pageProps } = this.props
         return (
-            <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
-                {
+            <>
                 <ThemeProvider theme={theme}>
                     <GlobalStyle />
                     <CanvasStyle>
-
                         <MenuContext.Provider value={this.state}>
                             <MainStyle>
-                                    <Menu />
-                                    <Nav />
-                                        <Component {...pageProps} />
-                                    <Footer />
+                                <Menu />
+                                <Nav />
+                                <Component {...pageProps} />
+                                <Footer />
                             </MainStyle>
-                        </MenuContext.Provider> 
-
+                        </MenuContext.Provider>
                     </CanvasStyle>
                 </ThemeProvider>
-                }
-        </FirebaseAuthProvider>
+            </>
         )
     }
 }

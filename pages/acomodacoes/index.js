@@ -1,17 +1,17 @@
 import { useEffect, useState, useContext } from 'react'
-import styled , { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { fadeIn, fadeInDown, fadeInLeft, shake, zoomInUp } from 'react-animations';
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { MenuContext } from '../../components/context/menucontext'
 import firebase from 'firebase/app';
 import "firebase/firestore";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import Modal from 'react-modal';
 
 const Zmage = dynamic(
-	() => import('react-zmage'),
-	{ ssr: false }
+    () => import('react-zmage'),
+    { ssr: false }
 )
 
 
@@ -283,15 +283,15 @@ const layout2Set = [
 
 
 const modalStyles = {
-	content : {
-	  top                   : '50%',
-	  left                  : '50%',
-	  right                 : 'auto',
-	  bottom                : 'auto',
-	  marginRight           : '-50%',
-	  transform             : 'translate(-50%, -50%)'
-	}
-  };
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
 
 
 
@@ -311,21 +311,21 @@ const Acomodacoes = () => {
 
     const closeModal = () => {
         setModalOpen(false)
-    
+
     }
 
 
     return (
-		<MainStyle>
-			<Helmet>
-				<title>New York City village - Barão Geraldo - Campinas</title>
-			</Helmet>
+        <MainStyle>
+            <Helmet>
+                <title>New York City Village - Barão Geraldo - Campinas</title>
+            </Helmet>
 
-			<Columns>
-				<Left>
-					<Header>
+            <Columns>
+                <Left>
+                    <Header>
                         <Link href='/'>
-						    <Logo src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/logo%2Flogo.png?alt=media&token=85cf1b26-3d30-4a14-9e43-acf5e39a93a0' />
+                            <Logo src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/logo%2Flogo.png?alt=media&token=85cf1b26-3d30-4a14-9e43-acf5e39a93a0' />
                         </Link>
                         <Menu>
                             <Link href='/acomodacoes'>
@@ -339,18 +339,18 @@ const Acomodacoes = () => {
                             </Link>
                         </Menu>
                         <MenuBtn onClick={() => menuCtxValue.openMenu(true)} src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/icons%2Fmenu_24px_outlined.svg?alt=media&token=b1386e09-291b-4dd2-b6e0-0d83716a8f47' />
-					</Header>
-					
+                    </Header>
+
 
                     <Body>
                         <Title>Acomodações</Title>
 
                         <Desc>
-                        Quando a arte encontra o lugar perfeito, surge o residencial que você sempre quis.<br /><br />
+                            Quando a arte encontra o lugar perfeito, surge o residencial que você sempre quis.<br /><br />
 
-                        Compacto, sem ser pequeno; bem localizado, sem ser caro; elegante, sem ser exagerado - o New York City Village conta com apartamentos contemporâneos com todo o requinte e sofisticação que você merece: ar condicionado; Smart TV em LED; refrigerador duplex; micro-ondas; pias esculpidas em mármore; móveis planejados; bancada para estudo; projeto luminotécnico diferenciado e paisagismo.<br /><br />
+                            Compacto, sem ser pequeno; bem localizado, sem ser caro; elegante, sem ser exagerado - o New York City Village conta com apartamentos contemporâneos com todo o requinte e sofisticação que você merece: ar condicionado; Smart TV em LED; refrigerador duplex; micro-ondas; pias esculpidas em mármore; móveis planejados; bancada para estudo; projeto luminotécnico diferenciado e paisagismo.<br /><br />
 
-                        No empreendimento: segurança total com controle de acesso e circuito fechado de televisão; piscina; sauna; espaço gourmet; área de convivência; bicicletário; solarium; estacionamento e muito, muito verde. Rateio e luz a parte. <br /><br />
+                            No empreendimento: segurança total com controle de acesso e circuito fechado de televisão; piscina; sauna; espaço gourmet; área de convivência; bicicletário; solarium; estacionamento e muito, muito verde. Rateio e luz a parte. <br /><br />
                         </Desc>
 
                         <ButtonRow>
@@ -367,21 +367,21 @@ const Acomodacoes = () => {
                         </ButtonRow>
                     </Body>
 
-				</Left>
+                </Left>
 
-				<Right>
+                <Right>
                     <AcomodItem>
                         <AcomodTitle>Layout 1</AcomodTitle>
-                        <AcomodCover 
-                            src='https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny1.jpg?alt=media&token=5783fa7c-ca72-4658-9fe3-cfa78e58f990' alt='new york' 
+                        <AcomodCover
+                            src='https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny1.jpg?alt=media&token=5783fa7c-ca72-4658-9fe3-cfa78e58f990' alt='new york'
                             set={layout1Set}
                             preset='desktop'
                         />
                     </AcomodItem>
                     <AcomodItem>
                         <AcomodTitle>Layout 2</AcomodTitle>
-                        <AcomodCover 
-                            src='https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny14.jpg?alt=media&token=f4f3a6ed-1010-4adf-83a5-dbfcd2369944' alt='new york' 
+                        <AcomodCover
+                            src='https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny14.jpg?alt=media&token=f4f3a6ed-1010-4adf-83a5-dbfcd2369944' alt='new york'
                             set={layout2Set}
                             preset='desktop'
                         />
@@ -393,32 +393,32 @@ const Acomodacoes = () => {
                         />
                     </AcomodItem> */}
 
-					{/* <Cover src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/home-page%2Fnewyork%20-cover.jpg?alt=media&token=854ab967-e073-4057-b6a2-86aca9d35afb' /> */}
-				</Right>
-			
-			</Columns>
+                    {/* <Cover src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/home-page%2Fnewyork%20-cover.jpg?alt=media&token=854ab967-e073-4057-b6a2-86aca9d35afb' /> */}
+                </Right>
+
+            </Columns>
 
 
 
-        <Modal
-            isOpen={modalOpen}
-            // onAfterOpen={afterOpenModal}
-            onRequestClose={closeModal}
-            style={modalStyles}
-            contentLabel="Example Modal"
-        >
+            <Modal
+                isOpen={modalOpen}
+                // onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                style={modalStyles}
+                contentLabel="Example Modal"
+            >
 
-            {type === 'video' &&<Iframe src='https://www.youtube.com/embed/0RCSWyr2FAk'></Iframe>}
-            {type === 'tour' &&<Iframe src='https://ocurus.com/view/MTYxOQ=='></Iframe>}
+                {type === 'video' && <Iframe src='https://www.youtube.com/embed/0RCSWyr2FAk'></Iframe>}
+                {type === 'tour' && <Iframe src='https://ocurus.com/view/MTYxOQ=='></Iframe>}
 
-            <FecharModalBtn onClick={() => setModalOpen(false)}>Fechar</FecharModalBtn>
+                <FecharModalBtn onClick={() => setModalOpen(false)}>Fechar</FecharModalBtn>
 
-		</Modal>
+            </Modal>
 
 
 
-		</MainStyle>
+        </MainStyle>
     )
-  }
-  
-  export default Acomodacoes
+}
+
+export default Acomodacoes
