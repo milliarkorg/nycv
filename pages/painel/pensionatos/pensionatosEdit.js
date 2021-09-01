@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/* import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 // import { Button, Icon, Modal, Popup } from 'semantic-ui-react'
 import firebase from 'firebase/app';
@@ -11,7 +11,7 @@ import ImgUploader from '../components/imgUploader'
 const ModalStyled = styled(Modal)`
     background: white;
     font-family: ${props => props.theme.font};
-   
+
    &&& {
        p {
         font-size: 16px;
@@ -202,7 +202,7 @@ const PensionatosEdit = ({ modalOpen, itemData, setModalOpen, closeModal }) => {
                     <EditPanel>
                         {Data &&
                             <FormBox>
-                                {/* <Button basic onClick={() => setShowPreview(!showPreview)} size='tiny'>Expandir/Colapsar</Button> <br /><br /> */}
+
                                 <Label>Titulo</Label>
                                 <Input value={Data.title} onChange={(e) => setData({ ...Data, title: e.target.value })} /> <br />
 
@@ -229,7 +229,7 @@ const PensionatosEdit = ({ modalOpen, itemData, setModalOpen, closeModal }) => {
                                     dbWrite={(url) => dbWriteBanner(url)}
                                     dbDelete={(url) => dbDeleteBanner(url)}
                                     startUpload={() => setUploadingImg(true)}
-                                    // startUpload={() => console.log('StartUpload')} 
+                                    // startUpload={() => console.log('StartUpload')}
                                     finishUpload={() => setUploadingImg(false)}
                                     uploadFlag={uploadingImg}
                                 />
@@ -237,15 +237,15 @@ const PensionatosEdit = ({ modalOpen, itemData, setModalOpen, closeModal }) => {
 
                                 <Label>Imagens</Label>
                                 <ImgUploader
-                                    // data={Data.fotos} 
+                                    // data={Data.fotos}
                                     arrayImg={Data.fotos}
-                                    // singleImg={Data.imgBanner} 
+                                    // singleImg={Data.imgBanner}
                                     storageRef={Data.id}
                                     dbref={'perfis'}
                                     dbWrite={(url) => dbWrite(url)}
                                     dbDelete={(url) => dbDelete(url)}
                                     startUpload={() => setUploadingImg(true)}
-                                    // startUpload={() => console.log('StartUpload')} 
+                                    // startUpload={() => console.log('StartUpload')}
                                     finishUpload={() => setUploadingImg(false)}
                                     uploadFlag={uploadingImg}
 
@@ -257,24 +257,13 @@ const PensionatosEdit = ({ modalOpen, itemData, setModalOpen, closeModal }) => {
                     </EditPanel>
 
 
-                    {/* <a href='https://www.markdownguide.org/basic-syntax'>Markdown Syntax</a> */}
+
 
 
                 </div>
 
                 <ButtonBox>
 
-                    {/* <Popup trigger={!Data.published && Data.id && <Button>Delete<Icon name='right trash' /></Button>} 
-                        on='click' 
-                        open={delPopupOpen} 
-                        onClose={() => setDelPopupOpen(false)}
-                        onOpen={() => setDelPopupOpen(true)}
-                >
-                    <div>Tem certeza que deseja deletar permanentemente?</div><br />
-                    <Button color='red' content='Delete' fluid onClick={() => deleteNews(Data.id)}/>
-                </Popup> */}
-
-                    {/* {!Data.published && <Button color='red' onClick={() => deleteNews()}>Delete<Icon name='right trash' /></Button>} */}
 
                     <Button onClick={() => update()}>
                         Atualizar
@@ -291,4 +280,4 @@ const PensionatosEdit = ({ modalOpen, itemData, setModalOpen, closeModal }) => {
     )
 }
 
-export default PensionatosEdit;
+export default PensionatosEdit; */

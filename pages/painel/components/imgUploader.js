@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+/* import React, {useState, useEffect} from 'react';
 import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 import firebase from 'firebase/app';
 import "firebase/storage";
@@ -68,7 +68,7 @@ const ImgUploader = ({ storageRef, arrayImg, singleImg, dbref, dbWrite, dbDelete
 
     }, [arrayImg || singleImg])
 
-   
+
 
 
     const handleUploadStart = () => {
@@ -106,7 +106,7 @@ const ImgUploader = ({ storageRef, arrayImg, singleImg, dbref, dbWrite, dbDelete
             startUpload()
             // File deleted successfully from storage
             toast.warning('Imagem Deletada');
-            
+
             // Deletando do DB
             dbDelete(url)
         })
@@ -119,15 +119,15 @@ const ImgUploader = ({ storageRef, arrayImg, singleImg, dbref, dbWrite, dbDelete
 
     return (
         <>
-       
-            
+
+
             {arrayImg ?
-           
+
             <ImgList>
-                {ImgState && ImgState.map((item) => 
+                {ImgState && ImgState.map((item) =>
                     <ImgBox key={item.src}>
                         <Img src={item.src} alt={'pensionato'}/>
-                        {!uploadFlag ? 
+                        {!uploadFlag ?
                             <ImgDel onClick={() => deleteImg(item.src)}>Remover</ImgDel>
                             :
                             <ImgDelDisabled>Remover</ImgDelDisabled>
@@ -135,15 +135,15 @@ const ImgUploader = ({ storageRef, arrayImg, singleImg, dbref, dbWrite, dbDelete
                     </ImgBox>
                 )}
             </ImgList>
-            
+
             :
 
             <ImgList>
-                    {ImgState && 
+                    {ImgState &&
                     <ImgBox>
                         <Img src={ImgState} alt={'pensionato'}/>
-                    
-                        {!uploadFlag ? 
+
+                        {!uploadFlag ?
                             <ImgDel onClick={() => deleteImg(singleImg)}>Remover</ImgDel>
                             :
                             <ImgDelDisabled>Remover</ImgDelDisabled>
@@ -152,7 +152,7 @@ const ImgUploader = ({ storageRef, arrayImg, singleImg, dbref, dbWrite, dbDelete
                     }
             </ImgList>
             }
-            
+
 
             {!uploadFlag ?
                 <CustomUploadButton
@@ -172,7 +172,7 @@ const ImgUploader = ({ storageRef, arrayImg, singleImg, dbref, dbWrite, dbDelete
             :
                 <p>Aguarde...</p>
             }
-            
+
 
             <Hr />
         </>
@@ -186,3 +186,4 @@ export default ImgUploader
 
 
 
+ */
