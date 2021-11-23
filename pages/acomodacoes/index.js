@@ -219,7 +219,7 @@ const AcomodItem = styled.div`
    
 `
 const AcomodTitle = styled.div`
-      margin-left: 10px;
+    margin-left: 10px;
     font-size: 18px;
     color: white;
     margin-bottom: 15px;
@@ -273,6 +273,15 @@ const layout1Set = [
     { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny13.jpg?alt=media&token=78546155-7ba6-4417-9169-b671895e11f2", alt: "New York" },
 ]
 const layout2Set = [
+    { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny14.jpg?alt=media&token=f4f3a6ed-1010-4adf-83a5-dbfcd2369944", alt: "New York" },
+    { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny15.jpg?alt=media&token=032172f5-f03b-4925-96b1-d6cbbdca668e", alt: "New York" },
+    { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny16.jpg?alt=media&token=5c3f9b1a-60e4-4c42-baf4-1ce800c88b60", alt: "New York" },
+    { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny18.jpg?alt=media&token=f6861be0-49bd-401b-99b8-29facc5bff97", alt: "New York" },
+    { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny19.jpg?alt=media&token=bdb0406c-a4c1-4e1d-851a-6028ec7f2db9", alt: "New York" },
+    { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny20.jpg?alt=media&token=0abc84c5-6b6c-427d-a1e3-b00c4b08a236", alt: "New York" },
+]
+
+const layout3Set = [
     { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny14.jpg?alt=media&token=f4f3a6ed-1010-4adf-83a5-dbfcd2369944", alt: "New York" },
     { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny15.jpg?alt=media&token=032172f5-f03b-4925-96b1-d6cbbdca668e", alt: "New York" },
     { src: "https://firebasestorage.googleapis.com/v0/b/morando-em-barao.appspot.com/o/lofts%2Fcristiano-new-york%2Fny16.jpg?alt=media&token=5c3f9b1a-60e4-4c42-baf4-1ce800c88b60", alt: "New York" },
@@ -386,14 +395,16 @@ const Acomodacoes = () => {
                             preset='desktop'
                         />
                     </AcomodItem>
-                    {/* <AcomodItem>
-                        <AcomodTitle>Layout 3</AcomodTitle>
+                    <AcomodItem>
+                        <AcomodTitle>   here</AcomodTitle>
                         <AcomodCover 
                             src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/home-page%2Fnewyork%20-cover.jpg?alt=media&token=854ab967-e073-4057-b6a2-86aca9d35afb' alt='new york' 
+                            set={layout3Set}
+                            preset='desktop'
                         />
-                    </AcomodItem> */}
+                    </AcomodItem>
 
-                    {/* <Cover src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/home-page%2Fnewyork%20-cover.jpg?alt=media&token=854ab967-e073-4057-b6a2-86aca9d35afb' /> */}
+                    {<Cover src='https://firebasestorage.googleapis.com/v0/b/new-york-city-village.appspot.com/o/home-page%2Fnewyork%20-cover.jpg?alt=media&token=854ab967-e073-4057-b6a2-86aca9d35afb' /> }
                 </Right>
 
             </Columns>
